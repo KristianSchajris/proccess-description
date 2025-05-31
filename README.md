@@ -1,5 +1,3 @@
-# 📄 Documento de Descripción del Proyecto
-
 ## 🖥️ Editor Web de Descripciones de Procesos conforme al estándar ISO/IEC/IEEE 24774:2021
 
 ---
