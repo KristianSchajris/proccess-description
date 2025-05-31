@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor de Procesos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Editor Web de Descripciones de Procesos</h1>
+  <nav>
+    <button onclick="mostrarSeccion('crear')">Crear Proceso</button>
+    <button onclick="mostrarSeccion('cargar')">Cargar .pro</button>
+    <button onclick="mostrarSeccion('vista')">Vista previa</button>
+  </nav>
+
+  <section id="crear" class="seccion">
+    <h2>Crear nuevo proceso</h2>
+    <form id="form-proceso">
+      <fieldset>
+        <legend>Campos obligatorios</legend>
+        <label>Nombre del proceso:</label>
+        <input type="text" id="nombre" required minlength="10" maxlength="200"><br>
+
+        <label>Propósito:</label>
+        <textarea id="proposito" required minlength="100" maxlength="1000"></textarea><br>
+
+        <label>Resultados esperados:</label>
+        <div id="resultados-list"></div>
+        <button type="button" onclick="agregarCampo('resultados-list', 'resultado')">Agregar resultado</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Campos opcionales</legend>
+
+        <label>Entradas:</label>
+        <div id="entradas-list"></div>
+        <button type="button" onclick="agregarCampo('entradas-list', 'entrada')">Agregar entrada</button><br>
+
+        <label>Controles:</label>
+        <div id="controles-list"></div>
+        <button type="button" onclick="agregarCampo('controles-list', 'control')">Agregar control</button><br>
+
+        <label>Restricciones:</label>
+        <div id="restricciones-list"></div>
+        <button type="button" onclick="agregarCampo('restricciones-list', 'restriccion')">Agregar restricción</button><br>
+
+        <label>Actividades:</label>
+        <div id="actividades-list"></div>
+        <button type="button" onclick="agregarActividad()">Agregar actividad</button><br>
+      </fieldset>
+
+      <button type="submit">Guardar proceso</button>
+    </form>
+  </section>
+
+  <section id="cargar" class="seccion" style="display:none;">
+    <h2>Cargar archivo .pro</h2>
+    <input type="file" id="file-input" accept=".pro">
+  </section>
+
+  <section id="vista" class="seccion" style="display:none;">
+    <h2>Vista previa del proceso</h2>
+    <div id="preview"></div>
+    <button onclick="exportarPDF()">Exportar a PDF</button>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
